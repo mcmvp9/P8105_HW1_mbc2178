@@ -2,7 +2,7 @@
 title: "p8105_hw1_mbc2178"
 author: "Melvin Coleman"
 date: "2022-09-23"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}

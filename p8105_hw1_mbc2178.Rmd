@@ -16,4 +16,11 @@ library (tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
 
+The section below provides a brief description of the penguins dataset. 
+The penguin dataset consists of the following summary statistics:
+`r summary(penguins)` .
+In this dataset, there are `r nrow(penguins) ` observations and 
+`r ncol(penguins`) variables. 
+The mean flipper length in the penguins dataset is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` measured in millimeters(mm). 
+
 

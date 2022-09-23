@@ -23,4 +23,22 @@ In this dataset, there are `r nrow(penguins) ` observations and
 `r ncol(penguins`) variables. 
 The mean flipper length in the penguins dataset is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` measured in millimeters(mm). 
 
+## Scatter Plot of Flipper Length vs Bill Length by Species
+
+Next, we make a scatter plot of flipper length vs bill length by penguin 
+species below and saved the scatter plot to my project directory. 
+
+```{r scatterplot}
+plot_peng <- ggplot(penguins, aes(x = bill_length_mm,
+                                  y = flipper_length_mm, color = species)) + 
+             geom_point()
+
+ggsave(scatter_penguins, plot = plot_peng, height = 4, width = 6)
+```
+
+
+
+
+
+
 

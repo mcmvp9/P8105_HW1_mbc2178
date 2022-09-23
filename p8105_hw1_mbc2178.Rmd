@@ -54,16 +54,18 @@ peng_df <- tibble(
 
 Next, let's try to take the mean of each variable in our new dataset `peng_df` . 
 
-The mean of `norm_samp` is `r  mean(pull(peng_df, norm_samp), na.rm=TRUE)`.
+The mean of `norm_samp` is `r mean(pull(peng_df, norm_samp), na.rm=TRUE)`.
 The mean of `norm_samp_pos` is `r mean(pull(peng_df, norm_samp_pos), na.rm=TRUE)` .
 The mean of `vec_hw` is `r mean(pull(peng_df, vec_hw), na.rm=TRUE)` .
 The mean of `vec_factor_hw` is `r mean(pull(peng_df, vec_factor_hw), na.rm=TRUE)` . 
 
-I noticed that trying to take the mean of the variables `norm_samp_pos` , `vec_hw` 
-and `vec_factor_hw` in the `peng_df` dataset yielded invalid results. In short, 
-R couldn't perform the operation. 
+I noticed that trying to take the mean of the variables `vec_hw` and 
+`vec_factor_hw` in the `peng_df` dataset yielded invalid results. In short, 
+R couldn't perform the operation because the argument was not numeric or 
+logical.
 
-However, I was able to calculate the mean of  variable `norm_samp` in this dataset. 
+Nevertheless,I was able to calculate the mean of  variable `norm_samp` and 
+`norm_samp_pos` in this dataset. 
 
 
 

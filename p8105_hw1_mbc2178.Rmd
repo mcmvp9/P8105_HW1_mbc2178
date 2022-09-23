@@ -67,6 +67,21 @@ logical.
 Nevertheless,I was able to calculate the mean of  variable `norm_samp` and 
 `norm_samp_pos` in this dataset. 
 
+Now let's apply the `as.numeric` function to our logical variable `norm_samp_pos`, 
+character variable `vec_hw`, and factor variable `vec_factor_hw`. 
+
+```{r convert_var, echo = FALSE}
+as.numeric(vec_hw)
+norm_samp_pos = as.numeric(norm_samp_pos)
+vec_hw = as.numeric(vec_hw)
+vec_factor_hw = as.numeric(vec_factor_hw)
+
+```
+
+
+
+
+
 
 
 

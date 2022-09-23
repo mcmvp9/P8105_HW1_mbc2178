@@ -25,8 +25,8 @@ The mean flipper length in the penguins dataset is `r mean(pull(penguins, flippe
 
 ## Scatter Plot of Flipper Length vs Bill Length by Species
 
-Next, we made a scatter plot of flipper length vs bill length by penguin 
-species below and saved the scatter plot to my project directory. 
+Next, we made a scatter plot of `flipper_length_mm` vs `bill_length_mm` by penguin 
+`species` below and saved the scatter plot to my project directory. 
 
 ```{r scatterplot}
 plot_peng <- ggplot(penguins, aes(x = bill_length_mm,
@@ -34,6 +34,22 @@ plot_peng <- ggplot(penguins, aes(x = bill_length_mm,
              geom_point()
 
 ggsave("penguins.pdf", height = 4, width = 6)
+```
+
+## Problem 2 
+
+```{r, create_df}
+
+peng_df <- tibble(
+  norm_samp = rnorm (10, mean = 0),
+  norm_samp_pos = norm_samp > 0,
+  
+  vec_hw <- c("basketball", "handball", "streetball", "soccer","netball", 
+              "dodgeball","football","kickball","softball","pongball"), 
+  
+  vec_factor_hw <- factor(c("MARRIED","WIDOWED","SINGLE","MARRIED","SINGLE","WIDOWED","SINGLE","SINGLE","WIDOWED",
+                            "MARRIED"))
+)
 ```
 
 

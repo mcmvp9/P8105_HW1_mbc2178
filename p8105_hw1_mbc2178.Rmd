@@ -10,5 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-## R Markdown
+## Problem 1 
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
 

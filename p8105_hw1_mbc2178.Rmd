@@ -19,8 +19,8 @@ data("penguins", package = "palmerpenguins")
 The section below provides a brief description of the penguins dataset. 
 The penguin dataset consists of the following summary statistics:
 `r summary(penguins)` .
-In this dataset, there are `r nrow(penguins) ` observations and 
-`r ncol(penguins`) variables. 
+In this dataset, there are `r nrow(penguins) ` observations (rows) and 
+`r ncol(penguins)` variables (columns). 
 The mean flipper length in the penguins dataset is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` measured in millimeters(mm). 
 
 ## Scatter Plot of Flipper Length vs Bill Length by Species
@@ -54,10 +54,10 @@ peng_df <- tibble(
 
 Next, let's try to take the mean of each variable in our new dataset `peng_df` . 
 
-The mean of `norm_samp` is `r mean(pull(peng_df, norm_samp), na.rm=TRUE)`.
-The mean of `norm_samp_pos` is `r mean(pull(peng_df, norm_samp_pos), na.rm=TRUE)` .
-The mean of `vec_hw` is `r mean(pull(peng_df, vec_hw), na.rm=TRUE)` .
-The mean of `vec_factor_hw` is `r mean(pull(peng_df, vec_factor_hw), na.rm=TRUE)` . 
+The mean of `norm_samp` is `r mean(pull(peng_df, norm_samp)`.
+The mean of `norm_samp_pos` is `r mean(pull(peng_df, norm_samp_pos))` .
+The mean of `vec_hw` is `r mean(pull(peng_df, vec_hw))` .
+The mean of `vec_factor_hw` is `r mean(pull(peng_df, vec_factor_hw))` . 
 
 I noticed that trying to take the mean of the variables `vec_hw` and 
 `vec_factor_hw` in the `peng_df` dataset yielded invalid results. In short, 

@@ -9,15 +9,21 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 library (tidyverse)
 ```
+
 ## Problem 1 
 
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
-The first five observations show that this data include `r view(penguins)` .
-In this dataset there are `r nrow(penguins)` observations (rows) and `r ncol(penguins)` variables (columns). 
 
-The mean flipper length in the penguins dataset is `r round(mean(pull(penguins, flipper_length_mm), na.rm=TRUE))` measured in millimeters(mm). 
+```{r}
+# The penguins dataset is printed below and consists of the following varies including species, island, bill length etc...
+
+head(penguins, 5)
+```
+There are `r nrow(penguins)` observations (rows) and `r ncol(penguins)` variables (columns). 
+
+The mean flipper length in the `penguins` dataset is `r round(mean(pull(penguins, flipper_length_mm), na.rm=TRUE))` measured in millimeters (mm). 
 
 ## Scatter Plot of Flipper Length vs Bill Length by Species
 
@@ -64,7 +70,7 @@ logical.
 Nevertheless,I was able to calculate the mean of  variable `norm_samp` and 
 `norm_samp_pos` in this dataset. 
 
-Now let's apply the `as.numeric` function to our logical variable `norm_samp_pos`,
+Moving on, now let's apply the `as.numeric` function to our logical variable `norm_samp_pos`,
 character variable `vec_hw`, and factor variable `vec_factor_hw`. 
 
 ```{r convert_var, eval = FALSE}

@@ -9,23 +9,19 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 library (tidyverse)
 ```
-
 ## Problem 1 
 
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
+The first five observations show that this data include `r view(penguins)` .
+In this dataset there are `r nrow(penguins)` observations (rows) and `r ncol(penguins)` variables (columns). 
 
-The section below provides a brief description of the penguins dataset. 
-The penguin dataset consists of the following summary statistics:
-`r head(penguins, 5)`.
-In this dataset, there are `r nrow(penguins) ` observations (rows) and 
-`r ncol(penguins)` variables (columns). 
-The mean flipper length in the penguins dataset is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` measured in millimeters(mm). 
+The mean flipper length in the penguins dataset is `r round(mean(pull(penguins, flipper_length_mm), na.rm=TRUE))` measured in millimeters(mm). 
 
 ## Scatter Plot of Flipper Length vs Bill Length by Species
 
-Next, we made a scatter plot of `flipper_length_mm` vs `bill_length_mm` by penguin 
+Next, we made a scatter plot of `flipper_length_mm` vs `bill_length_mm` by penguin
 `species` below and saved the scatter plot to my project directory. 
 
 ```{r scatterplot}
@@ -42,16 +38,22 @@ ggsave("penguins.pdf", height = 4, width = 6)
 
 peng_df <- tibble(
   norm_samp = rnorm (10, mean = 0),
+  
   norm_samp_pos = norm_samp > 0,
+  
   vec_hw = c("basketball", "handball", "streetball", "soccer","netball", 
               "dodgeball","football","kickball","softball","pongball"), 
-  vec_factor_hw = factor(c("MARRIED","WIDOWED","SINGLE","MARRIED","SINGLE","WIDOWED","SINGLE","SINGLE","WIDOWED"
+  
+ vec_factor_hw = factor(c("MARRIED","WIDOWED","SINGLE","MARRIED","SINGLE","WIDOWED","SINGLE","SINGLE","WIDOWED"
                             ,"MARRIED"),levels = c("MARRIED", "WIDOWED", "SINGLE"))
 )
 ```
-The mean of variable `norm_samp` is `r mean(pull(peng_df,norm_samp))`  
-The mean of `norm_samp_pos` is `r mean(pull(peng_df, norm_samp_pos))` 
-The mean of `vec_hw` is `r mean(pull(peng_df, vec_hw))` 
+The mean of variable `norm_samp` is `r mean(pull(peng_df,norm_samp))`.  
+
+The mean of `norm_samp_pos` is `r mean(pull(peng_df, norm_samp_pos))`.
+
+The mean of `vec_hw` is `r mean(pull(peng_df, vec_hw))`.
+
 The mean of `vec_factor_hw` is `r mean(pull(peng_df, vec_factor_hw))` 
 
 I noticed that trying to take the mean of the variables `vec_hw` and 
@@ -62,18 +64,25 @@ logical.
 Nevertheless,I was able to calculate the mean of  variable `norm_samp` and 
 `norm_samp_pos` in this dataset. 
 
-Now let's apply the `as.numeric` function to our logical variable `norm_samp_pos`, 
+Now let's apply the `as.numeric` function to our logical variable `norm_samp_pos`,
 character variable `vec_hw`, and factor variable `vec_factor_hw`. 
 
-```{r convert_var, echo = FALSE}
-  mean(as.numeric(pull(peng_df, norm_samp)))
+```{r convert_var, eval = FALSE}
   mean(as.numeric(pull(peng_df, norm_samp_pos)))
   mean(as.numeric(pull(peng_df, vec_hw)))
   mean(as.numeric(pull(peng_df, vec_factor_hw)))
 ```
 
+After applying the `as.numeric` function to the logical, character, and factor variables, I noticed that I still received a mean value for my logical variable
+and factor variable. This was because R treated the "TRUE" and "FALSE" in my logical variable as 1 and 0 respectively. 
 
+In my factor variable, R also treated the three levels (MARRIED, SINGLE and WIDOWED) as numeric when this function was applied. Therefore, each factor level 
+was given numeric codes corresponding to the alphabetical order in the vector. 
 
+For the vector character variable, when R tried to convert it to numeric it couldn't and therefore returned "NA". 
+
+This helps to explain why we couldn't take the mean of the character and factor 
+variable in the first code we ran earlier.
 
 
 
